@@ -6,20 +6,20 @@
 #
 # This will be automatically collected and used to make a datasheet for the chip.
 project: 
-  author:       ""      # Your name
-  title:        ""      # Project title
-  description:  ""      # Short description of what your project does
-  how_it_works: ""      # Longer description of how the project works
-  how_to_test:  ""      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
-  external_hw:  ""      # Describe any external hardware needed
-  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
-  clock_hz:     0       # Clock frequency in Hz (if required)
-  language:     "wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  wokwi_id:     0       # the wokwi ID
-  picture:      ""      # relative path to a picture in your repository
+  author:       "Miron Zadora"
+  title:        "Hello World UART"
+  description:  "Sends the 'Hello World!' message to a connected serial terminal"
+  how_it_works: "Repeatedly transmits 'Hello World!\\n' with a byte length idle gap between repetitions using UART. One start bit, eight data bits, two stop bits, no parity bit. One bit per clock cycle, which means the baud rate is equal to the supplied clock rate."
+  how_to_test:  "Supply a clock to 1st input and hold 2nd input high for one clock cycle to reset. Everything in the design happens on the rising edge of the clock. Connect external hardware described below."
+  external_hw:  "A UART adapter such as a FT232 board with its RX pin connected to the 1st output and baud rate set to the clock rate supplied to the chip"
+  doc_link:     "https://github.com/ElectricPotato/tinytapeout-hello-world-uart/blob/main/README.md"
+  clock_hz:     600
+  language:     "verilog"
+  wokwi_id:     341457971277988435
+  picture:      "wavedrom.svg"
   inputs:               # a description of what the inputs do
-    - clock
-    - reset
+    - Clock
+    - Synchronous reset
     - none
     - none
     - none
@@ -27,12 +27,12 @@ project:
     - none
     - none
   outputs:
-    - segment a         # a description of what the outputs do
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
+    - UART TX         # a description of what the outputs do
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
     - none
 
